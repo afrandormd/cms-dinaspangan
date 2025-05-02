@@ -1,0 +1,286 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int         @id @default(autoincrement())
+  name      String
+  email     String
+  password  String
+  level     String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  Artikel   Artikel[]
+  ChatAduan ChatAduan[]
+
+  @@map("user")
+}
+
+model Slider {
+  id        Int      @id @default(autoincrement())
+  text      String?
+  image     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("slider")
+}
+
+model Site {
+  id                 Int      @id @default(autoincrement())
+  sejarah            String?  @db.LongText
+  visiMisi           String?  @db.LongText
+  tugasDanFungsi     String?  @db.LongText
+  strukturOrganisasi String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@map("site")
+}
+
+enum TypeGallery {
+  IMAGE
+  VIDEO
+}
+
+model Gallery {
+  id        Int         @id @default(autoincrement())
+  title     String
+  file      String?
+  type      TypeGallery
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@map("gallery")
+}
+
+model Pengumuman {
+  id        Int      @id @default(autoincrement())
+  judul     String
+  isi       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("pengumuman")
+}
+
+model KategoriArtikel {
+  id           Int       @id @default(autoincrement())
+  namaKategori String
+  Artikel      Artikel[]
+
+  @@map("kategoriartikel")
+}
+
+model Artikel {
+  id                Int             @id @default(autoincrement())
+  judul             String
+  isi               String?         @db.LongText
+  user              User            @relation(fields: [userId], references: [id])
+  userId            Int
+  thumbnail         String?
+  slug              String
+  kategoriArtikel   KategoriArtikel @relation(fields: [kategoriArtikelId], references: [id])
+  kategoriArtikelId Int
+  counterView       Int             @default(0)
+  isPublish         Boolean
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@map("artikel")
+}
+
+model KategoriDokumen {
+  id           Int       @id @default(autoincrement())
+  namaKategori String
+  Dokumen      Dokumen[]
+
+  @@map("kategoridokumen")
+}
+
+model Dokumen {
+  id                Int             @id @default(autoincrement())
+  judul             String
+  keterangan        String?
+  fileDokumen       String
+  kategoriDokumen   KategoriDokumen @relation(fields: [kategoriDokumenId], references: [id])
+  kategoriDokumenId Int
+  isPublish         Boolean
+  isDownloadable    Boolean         @default(false)
+  counterView       Int             @default(0)
+  counterDownload   Int             @default(0)
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@map("dokumen")
+}
+
+model KategoriPejabat {
+  id           Int       @id @default(autoincrement())
+  namaKategori String
+  Pejabat      Pejabat[]
+
+  @@map("kategoripejabat")
+}
+
+model Pejabat {
+  id                Int             @id @default(autoincrement())
+  namaPejabat       String
+  profil            String?         @db.Text
+  jabatan           String
+  kepala            Int             @default(0)
+  kategoriPejabat   KategoriPejabat @relation(fields: [kategoriPejabatId], references: [id])
+  kategoriPejabatId Int
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@map("pejabat")
+}
+
+model Media {
+  id        Int      @id @default(autoincrement())
+  judul     String?
+  fileName  String
+  fileType  String
+  tag       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("media")
+}
+
+model LayananPsat {
+  id                Int       @id @default(autoincrement())
+  jenisRegistrasi   String
+  pelakuUsaha       String?
+  nomorRegister     String?
+  statusPengajuan   String?
+  namaPimpinan      String?
+  pic               String?
+  noPic             String?
+  alamat            String?
+  komoditasUtama    String?
+  komoditasTambahan String?
+  tanggalTerbit     DateTime? @db.Date
+  tanggalBerakhir   DateTime? @db.Date
+  keterangan        String?   @db.Text
+  email             String
+  doc               String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@map("layananpsat")
+}
+
+model Deduplication {
+  id        Int      @id @default(autoincrement())
+  hash      String
+  slug      String
+  createdAt DateTime @default(now())
+
+  @@unique([hash, slug])
+  @@map("deduplication")
+}
+
+model KategoriLayanan {
+  id           Int    @id @default(autoincrement())
+  namaKategori String
+
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  TiketAduan TiketAduan[]
+}
+
+enum StatusAduan {
+  START
+  FINISH
+}
+
+model TiketAduan {
+  id                Int             @id @default(autoincrement())
+  notiket           String
+  nik               String
+  nama              String
+  noTelepon         String
+  email             String
+  isiAduan          String          @db.Text
+  keyToken          String          @default("keyToken")
+  kategoriLayanan   KategoriLayanan @relation(fields: [kategoriLayananId], references: [id])
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  kategoriLayananId Int
+  statusAduan       StatusAduan     @default(START)
+  ChatAduan         ChatAduan[]
+}
+
+model ChatAduan {
+  id           Int        @id @default(autoincrement())
+  tiketAduan   TiketAduan @relation(fields: [tiketAduanId], references: [id])
+  tiketAduanId Int
+  adminText    String?    @db.Text
+  aduanText    String?    @db.Text
+  imgText      String?    @db.Text
+  userId       Int?
+  user         User?      @relation(fields: [userId], references: [id])
+  createdAt    DateTime   @default(now())
+}
+
+model IdentitasPegawai {
+  id                       Int                        @id @default(autoincrement())
+  foto                     String?
+  namaPejabat              String
+  nip                      String?
+  jenisKelamin             String
+  agama                    String
+  golongan                 String?
+  jabatan                  String?
+  pendidikanTerakhir       String
+  RiwayatJabatanPegawai    RiwayatJabatanPegawai[]
+  RiwayatPendidikanPegawai RiwayatPendidikanPegawai[]
+  RiwayatDiklat            RiwayatDiklat[]
+
+  isShow Boolean @default(true)
+
+  createdAt DateTime @default(now())
+}
+
+model RiwayatJabatanPegawai {
+  id                 Int              @id @default(autoincrement())
+  identitasPegawai   IdentitasPegawai @relation(fields: [identitasPegawaiId], references: [id])
+  identitasPegawaiId Int
+  namaJabatan        String
+  tahun              String
+
+  createdAt DateTime @default(now())
+}
+
+model RiwayatPendidikanPegawai {
+  id                 Int              @id @default(autoincrement())
+  identitasPegawai   IdentitasPegawai @relation(fields: [identitasPegawaiId], references: [id])
+  identitasPegawaiId Int
+  pendidikan         String
+  tahun              String
+
+  createdAt DateTime @default(now())
+}
+
+model RiwayatDiklat {
+  id                 Int              @id @default(autoincrement())
+  identitasPegawai   IdentitasPegawai @relation(fields: [identitasPegawaiId], references: [id])
+  identitasPegawaiId Int
+  namaDiklat         String
+  tahun              String
+
+  createdAt DateTime @default(now())
+}
