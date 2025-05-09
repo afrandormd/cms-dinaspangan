@@ -18,7 +18,8 @@ const Footer = () => {
 
            <div className="flex flex-col justify-between md:flex-row gap-1">
             <div className="flex flex-col gap-1 text-white">
-                <h4>DINAS PANGAN BANDAR LAMPUNG</h4>
+                <h4>DINAS PANGAN</h4>
+                <h3>KOTA BANDAR LAMPUNG</h3>
                 <h4 className='text-sm flex flex-row gap-1'><IconPinned style={{width:rem(20), height:rem(20) }} /> Bandar Lampung</h4>
                 <h4 className='text-sm flex flex-row gap-1'><IconMail style={{width:rem(20), height:rem(20) }} /> dinaspangan@bandarlampungkota.go.id</h4>
                 <h4 className='text-sm flex flex-row gap-1'><IconPhoneCall style={{width:rem(20), height:rem(20) }} /> (0721) 88888</h4>
