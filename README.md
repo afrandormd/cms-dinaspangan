@@ -5,6 +5,10 @@
   ```bash
   npx prisma migrate dev --name init
   ```
+- jalankan prisma generate
+  ```bash
+  npx prisma generate
+  ```
 
 
 ## Cara menjalankan program
