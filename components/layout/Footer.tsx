@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
+  
   return (
     <div className='bg-green-900 w-full'>
         <div className="flex flex-col gap-4 px-10 md:px-32 py-3">
@@ -27,9 +28,21 @@ const Footer = () => {
 
             <div className=''>
                 <h4 className='text-white text-sm flex flex-row gap-1'><IconCopyright /> 2024 Dinas Pangan Bandar Lampung</h4>
+                <p className='text-white mt-5'>Data Realtime Visitor</p>
+                {/* Visitor Counter */}
+                <div className='-my-3' 
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                      <a href='http://www.freevisitorcounters.com'>freevisitorcounters</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=1347aecaf4031ea0741d7899495bbfeb8f5174ca'></script>
+                    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1340067/t/0"></script>
+                    `
+                  }}
+                />
             </div>
            </div>
-        </div>
+
+      </div>
+
     </div>
   )
 }

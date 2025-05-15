@@ -5,6 +5,7 @@ import '@mantine/core/styles.css';
 import NextTopLoader from 'nextjs-toploader';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Notifications } from "@mantine/notifications";
+import Script from "next/script";
 
 import '@mantine/dropzone/styles.css';
 import '@mantine/notifications/styles.css';
