@@ -2,6 +2,7 @@
 import { getPengumuman, getPengumumanLast } from "@/actions/pengumuman.action";
 import { getSlider } from "@/actions/slider.action";
 import CardBerita from "@/components/CardBerita";
+import LogoShowcase from "@/components/LogoShowcase";
 import ProductSlider from "@/components/ProductSlider";
 import ViewFileComponent from "@/components/view-file";
 import { getStrapiMedia } from "@/utils/api-helper";
@@ -131,6 +132,8 @@ export default function ContentLanding({
       </div>
       
       <div className="z-8 w-full">
+        {/* SECTION LOGO SHOWCASE */}
+        <LogoShowcase />
 
         {/* SECTION SLIDE BERITA DAN LIST PENGUMUMAN */}
         <div className="grid grid-cols-1 md:grid-cols-12 mt-5 px-4 md:px-28 lg:px-44 gap-0 md:gap-4">
