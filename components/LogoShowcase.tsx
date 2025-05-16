@@ -21,6 +21,7 @@ const LogoShowcase = () => {
               initial={{ opacity: 0, scale: 0.8}}
               animate={{ opacity: 1, scale: 1}}
               transition={{ duration: 0.5, delay: index * 0.2}}
+              whileHover={{ y: -10, transition: { type: "spring", stiffness: 300 } }}
             >
               <Image
                 src={logo.src}
