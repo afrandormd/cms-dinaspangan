@@ -15,7 +15,7 @@ interface ProfileCardProps {
 }
 
 export default function ProfileCard({
-  title = "Profile",
+  title = "Profile Singkat",
   description = "Dinas Pangan Kota Bandar Lampung mulai dibentuk pada Tahun 2016 berdasarkan Peraturan Daerah Nomor 07 Tahun 2016 tentang Pembentukan Susunan Perangkat Daerah Kota Bandar Lampung dan berdasarkan Peraturan Walikota Bandar Lampung, Nomor 46 Tahun 2016 tentang Tugas Fungsi dan Tata Kerja Dinas Pangan Kota Bandar Lampung.",
   backgroundImageUrl = "/img/gedung-pemkot.png",
   logoUrl = "/img/logo-bandar-lampung.svg",
