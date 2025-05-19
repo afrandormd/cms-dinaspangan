@@ -2,7 +2,6 @@
 import { getPengumuman, getPengumumanLast } from "@/actions/pengumuman.action";
 import { getSlider } from "@/actions/slider.action";
 import CardBerita from "@/components/CardBerita";
-import LogoShowcase from "@/components/LogoShowcase";
 import ProductSlider from "@/components/ProductSlider";
 import ProfileCard from "@/components/ProfileCard";
 import ViewFileComponent from "@/components/view-file";
@@ -88,6 +87,14 @@ export default function ContentLanding({
     return () => clearInterval(interval);
   }, []);
 
+  // data gambar logo showcase
+  const logos = [
+    { src: "/img/logo-lampung.svg", alt: "Logo Lampung" },
+    { src: "/img/logo-bandar-lampung.svg", alt: "Logo Bandar Lampung" },
+    { src: "/img/logo-badan-pangan.svg", alt: "Logo Badan Pangan Nasional" },
+    { src: "/img/logo-b2sa.svg", alt: "Logo B2SA" },
+  ];
+
   return (
     <main className="flex flex-col items-center justify-between">
       {/* SECTION SLIDER TOP */}
@@ -134,13 +141,51 @@ export default function ContentLanding({
       
       <div className="z-8 w-full">
         {/* SECTION LOGO SHOWCASE */}
-        <LogoShowcase />
+        <div id="#logo-showcase">
+          <div className="w-full my-24 overflow-x-auto -z-10">
+            <div className="flex flex-nowrap justify-center gap-12 md:gap-32 px-4 md:px-0">
+              {logos.map((logo, index) => (
+                <motion.div
+                  key={index}
+                  className="relative w-20 sm:w-24 md:w-28 lg:w-32 h-auto aspect-square"
+                  initial={{ opacity: 0, scale: 0.8}}
+                  animate={{ opacity: 1, scale: 1}}
+                  transition={{ duration: 0.5, delay: index * 0.2}}
+                  whileHover={{ y: -10, transition: { type: "spring", stiffness: 300 } }}
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 64px, (max-width: 1024px) 96px, 120px"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
 
         {/* SECTION PROFILE CARD */}
         <ProfileCard />
 
+        {/* SECTION LAYANAN */}
+        <div className="relative w-full mt-5 bg-yellow-500 mb-10">
+            <div className="relative z-20 mt-5 px-5 md:px-28 lg:px-44 py-4 flex flex-col gap-3">
+                <h2 className="text-green-900 font-bold text-2xl md:text-3xl text-center">LAYANAN KAMI</h2>
+                <div className="flex flex-row gap-4 flex-wrap items-center justify-center mt-2">
+                    <div className="bg-white w-[300px] rounded flex flex-col gap-3 shadow-lg p-4 items-center text-center hover:cursor-pointer">
+                        <div className="w-full bg-green-800 h-1"></div>
+                        <IconHeadphonesFilled size={72} />
+                        <Link href={"/layanan-konsultasi"}><h1 className="text-xl bg-green-50 px-2 py-1 rounded">Layanan dan Konsultasi</h1></Link>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         {/* SECTION SLIDE BERITA DAN LIST PENGUMUMAN */}
+        <h2 className="text-center text-3xl font-bold text-green-900 py-4">Berita Terbaru & Pengumuman</h2>
         <div className="grid grid-cols-1 md:grid-cols-12 mt-5 px-4 md:px-28 lg:px-44 gap-0 md:gap-4">
 
           <div className="col-span-8">
@@ -191,7 +236,7 @@ export default function ContentLanding({
             </div>
           </div>
           <div className="col-span-4 mt-4 md:mt-0">
-            <div className="bg-blue-900 rounded-xl h-full p-4 flex flex-col gap-2 shadow-lg items-start">
+            <div className="bg-green-900 rounded-xl h-full p-4 flex flex-col gap-2 shadow-lg items-start">
               <h2 className="text-gray-200 font-bold font-sans">PENGUMUMAN</h2>
               <Divider />
               <ScrollArea className="h-[200px]">
@@ -226,19 +271,6 @@ export default function ContentLanding({
             </div>
         </div>
 
-        {/* SECTION GALERI */}
-        <div className="relative w-full mt-5 bg-transparent mb-10">
-            <div className="relative z-20 mt-5 px-5 md:px-28 lg:px-44 py-4 flex flex-col gap-3">
-                <h1 className="text-slate-700 font-bold text-xl text-center">Layanan</h1>
-                <div className="flex flex-row gap-4 flex-wrap items-center justify-center mt-2">
-                    <div className="bg-white w-[300px] rounded flex flex-col gap-3 shadow-lg p-4 items-center text-center hover:cursor-pointer">
-                        <div className="w-full bg-green-800 h-1"></div>
-                        <IconHeadphonesFilled size={72} />
-                        <Link href={"/layanan-konsultasi"}><h1 className="text-xl bg-green-50 px-2 py-1 rounded">Layanan dan Konsultasi</h1></Link>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         {/* SECTION GALERI */}
         <div className="relative w-full mt-5 bg-transparent mb-10">

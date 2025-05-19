@@ -130,17 +130,17 @@ const Footer = () => {
       </div>
 
       {/* Visitor Counter */}
-      <div className="absolute top-40 right-4 transform -translate-y-1/2 p-1 bg-white shadow-md rounded-md border border-gray-300 z-20">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
-              <a href='http://www.freevisitorcounters.com'>freevisitorcounters</a> 
-              <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=1347aecaf4031ea0741d7899495bbfeb8f5174ca'></script>
-              <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1340067/t/0"></script>
-            `,
-          }}
-        />
-      </div>
+      {/* <div className="absolute top-40 right-4 transform -translate-y-1/2 p-1 bg-white shadow-md rounded-md border border-gray-300 z-20"> */}
+      {/*   <div */}
+      {/*     dangerouslySetInnerHTML={{ */}
+      {/*       __html: ` */}
+      {/*         <a href='http://www.freevisitorcounters.com'>freevisitorcounters</a>  */}
+      {/*         <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=1347aecaf4031ea0741d7899495bbfeb8f5174ca'></script> */}
+      {/*         <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1340067/t/0"></script> */}
+      {/*       `, */}
+      {/*     }} */}
+      {/*   /> */}
+      {/* </div> */}
 
       {/* Copyright */}
       <div className="absolute bottom-0 w-full flex justify-center pb-3 z-10">

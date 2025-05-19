@@ -1,6 +1,5 @@
-// components/LogoBar.tsx
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const logos = [
   { src: "/img/logo-lampung.svg", alt: "Logo Lampung" },
@@ -11,8 +10,8 @@ const logos = [
 
 const LogoShowcase = () => {
   return (
-    <div>
-      <div className="w-full my-24 overflow-x-auto">
+    <div id="#logo-showcase">
+      <div className="w-full my-24 overflow-x-auto -z-10">
         <div className="flex flex-nowrap justify-center gap-12 md:gap-32 px-4 md:px-0">
           {logos.map((logo, index) => (
             <motion.div
