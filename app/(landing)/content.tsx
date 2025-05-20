@@ -2,8 +2,10 @@
 import { getPengumuman, getPengumumanLast } from "@/actions/pengumuman.action";
 import { getSlider } from "@/actions/slider.action";
 import CardBerita from "@/components/CardBerita";
+import FaqSection from "@/components/FaqSection";
 import ProductSlider from "@/components/ProductSlider";
 import ProfileCard from "@/components/ProfileCard";
+import OurAppsSection from "@/components/ui/OurAppsSection";
 import ViewFileComponent from "@/components/view-file";
 import { getStrapiMedia } from "@/utils/api-helper";
 import { Button, Divider, ScrollArea, Tabs } from "@mantine/core";
@@ -271,6 +273,11 @@ export default function ContentLanding({
             </div>
         </div>
 
+        {/* SECTION APLIKASI KAMI */}
+        <OurAppsSection />
+
+        {/* SECTION FREQUENTLY ASK QUESTIONS */}
+        <FaqSection/>
 
         {/* SECTION GALERI */}
         <div className="relative w-full mt-5 bg-transparent mb-10">
