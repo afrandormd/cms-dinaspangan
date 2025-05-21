@@ -279,11 +279,11 @@ export default function ContentLanding({
         <FaqSection/>
 
         {/* SECTION GALERI */}
-        <div className="relative w-full mt-5 bg-transparent mb-10">
-            <div className="relative z-20 mt-5 px-5 md:px-28 lg:px-44 py-4 flex flex-col gap-3">
-                <h1 className="text-slate-700 font-bold text-xl text-center">Link Terkait</h1>
-            </div>
-        </div>
+        {/* <div className="relative w-full mt-5 bg-transparent mb-10"> */}
+        {/*     <div className="relative z-20 mt-5 px-5 md:px-28 lg:px-44 py-4 flex flex-col gap-3"> */}
+        {/*         <h1 className="text-slate-700 font-bold text-xl text-center">Link Terkait</h1> */}
+        {/*     </div> */}
+        {/* </div> */}
 
 
       </div>

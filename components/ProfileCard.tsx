@@ -15,7 +15,7 @@ interface ProfileCardProps {
 }
 
 export default function ProfileCard({
-  title = "Profile Singkat",
+  title = "PROFILE SINGKAT",
   description = "Dinas Pangan Kota Bandar Lampung mulai dibentuk pada Tahun 2016 berdasarkan Peraturan Daerah Nomor 07 Tahun 2016 tentang Pembentukan Susunan Perangkat Daerah Kota Bandar Lampung dan berdasarkan Peraturan Walikota Bandar Lampung, Nomor 46 Tahun 2016 tentang Tugas Fungsi dan Tata Kerja Dinas Pangan Kota Bandar Lampung.",
   backgroundImageUrl = "/img/gedung-pemkot.png",
   logoUrl = "/img/logo-bandar-lampung.svg",
@@ -99,7 +99,7 @@ export default function ProfileCard({
         >
           <Link
             href={buttonLink}
-            className="inline-block border-2 border-green-700 text-green-700 px-4 py-2 rounded-md hover:bg-green-700 hover:text-white transition-colors"
+            className="inline-block border-2 border-green-700 text-green-700 px-4 py-2 rounded-md hover:bg-green-900 hover:text-white transition-colors"
           >
             {buttonText}
           </Link>
