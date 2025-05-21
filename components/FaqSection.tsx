@@ -11,21 +11,24 @@ const faqData = [
   {
     question: "Bagaimana cara menghubungi Dinas Pangan?",
     answer:
-      "Anda bisa menghubungi kami melalui halaman kontak di website ini atau langsung datang ke kantor kami di Jl. Contoh Alamat No.123, Bandar Lampung.",
+      "Anda bisa menghubungi kami melalui halaman kontak di website ini atau langsung datang ke kantor kami di Jalan Dokter Susilo Nomor 2 Sumur Batu, Gedung Batu Atas Lt 10, Bandar Lampung, Lampung 35214",
   },
   {
     question: "Apa layanan yang disediakan oleh Dinas Pangan?",
     answer:
-      "Kami menyediakan layanan seperti pengawasan distribusi pangan, edukasi ketahanan pangan, bantuan pangan, dan program pasar murah.",
+      "Kami menyediakan layanan seperti konsultasi dan pengaduan",
   },
+  {
+    question: "Dimanakah Kantor Dinas Pangan Kota Bandar Lampung?",
+    answer:
+      "Kantor kami berada di lantai 10 gedung pemerintah kota bandar lampung di Jalan Dokter Susilo Nomor 2 Kota Bandar Lampung",
+  }
 ];
 
 export default function FaqSection() {
   return (
     <Container size="md" py="xl">
-      <Title order={2} mb="md" ta="center" className="text-green-900">
-        Pertanyaan yang Sering Diajukan
-      </Title>
+      <Title order={2} mb="md" ta="center" className="text-green-900">PERTANYAAN YANG SERING DI AJUKAN</Title>
       <Text mb="lg" ta="center" c="dimmed">
         Temukan jawaban dari pertanyaan umum seputar layanan kami
       </Text>
