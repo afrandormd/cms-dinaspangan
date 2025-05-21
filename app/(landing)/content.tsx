@@ -173,16 +173,15 @@ export default function ContentLanding({
         <ProfileCard />
 
         {/* SECTION LAYANAN */}
-        <div className="relative w-full mt-5 bg-yellow-500 mb-10">
+        <div className="relative w-full mt-5 bg-green-800 mb-10">
             <div className="relative z-20 mt-5 px-5 md:px-28 lg:px-44 py-4 flex flex-col gap-3">
-                <h2 className="text-green-900 font-bold text-2xl md:text-3xl text-center">LAYANAN KAMI</h2>
-                <div className="flex flex-row gap-4 flex-wrap items-center justify-center mt-2">
-                    <div className="bg-white w-[300px] rounded flex flex-col gap-3 shadow-lg p-4 items-center text-center hover:cursor-pointer">
-                        <div className="w-full bg-green-800 h-1"></div>
-                        <IconHeadphonesFilled size={72} />
-                        <Link href={"/layanan-konsultasi"}><h1 className="text-xl bg-green-50 px-2 py-1 rounded">Layanan dan Konsultasi</h1></Link>
+                <h2 className="text-white font-bold text-2xl md:text-3xl  py-4 text-center">LAYANAN KAMI</h2>
+                <motion.div initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 0.9, delay: 0.8}} className="flex flex-row gap-4 flex-wrap items-center justify-center mt-2 my-4">
+                    <div className="bg-white w-[300px] rounded flex flex-col gap-3 shadow-lg p-4 items-center text-center hover:cursor-pointer hover:scale-110 transition-all">
+                        <IconHeadphonesFilled size={72} className="text-green-900" />
+                        <Link href={"/layanan-konsultasi"}><h1 className="text-xl px-2 font-bold text-green-900 py-2 rounded">Layanan Konsultasi</h1></Link>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
 
