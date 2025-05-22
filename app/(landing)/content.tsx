@@ -186,7 +186,7 @@ export default function ContentLanding({
         </div>
 
         {/* SECTION SLIDE BERITA DAN LIST PENGUMUMAN */}
-        <h2 className="text-center text-3xl font-bold text-green-900 py-4">Berita Terbaru & Pengumuman</h2>
+        <h2 className="text-center text-3xl font-bold text-green-900 py-4">BERITA TERBARU & PENGUMUMAN</h2>
         <div className="grid grid-cols-1 md:grid-cols-12 mt-5 px-4 md:px-28 lg:px-44 gap-0 md:gap-4">
 
           <div className="col-span-8">
