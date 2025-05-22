@@ -186,7 +186,7 @@ export default function ContentLanding({
         </div>
 
         {/* SECTION SLIDE BERITA DAN LIST PENGUMUMAN */}
-        <h2 className="text-center text-3xl font-bold text-green-900 py-4">Berita Terbaru & Pengumuman</h2>
+        <h2 className="text-center text-3xl font-bold text-green-900 py-4">BERITA TERBARU & PENGUMUMAN</h2>
         <div className="grid grid-cols-1 md:grid-cols-12 mt-5 px-4 md:px-28 lg:px-44 gap-0 md:gap-4">
 
           <div className="col-span-8">
@@ -260,15 +260,18 @@ export default function ContentLanding({
         {/* SECTION LIST BERITA/ARTIKEL */}
         <div className="relative w-full mt-5 bg-transparent mb-10">
             <div className="relative z-20 mt-5 px-5 md:px-28 lg:px-44 py-4 flex flex-col gap-3">
-                <h1 className="text-slate-700 font-bold text-xl text-center">Artikel</h1>
+                <h1 className="text-green-900 py-2 font-bold text-2xl md:text-3xl text-center">ARTIKEL TERKINI</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  { artikelHome && artikelHome.map((item:any,index:number) => { 
+                  { artikelHome?.slice(0, 6).map((item:any,index:number) => { 
                       return (
                       <div key={index}>
                           <CardBerita category={item.kategoriArtikel.namaKategori} thumbnail={item.thumbnail.replace("uploads/","api/files/")} title={item.judul} shortdesc={item.isi} slug={item.slug} time={item.createdAt} />
                       </div>
                   )})}
                 </div>
+            </div>
+            <div className="mt-6 flex justify-center">
+              <a href="/artikel" className="px-6 py-2 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg transition">Lihat Semua Artikel</a>
             </div>
         </div>
 
