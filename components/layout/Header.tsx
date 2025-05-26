@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useState } from 'react'
-import NavigationComponent from './NavigationComponent'
+// import NavigationComponent from './NavigationComponent'
 import { usePathname } from 'next/navigation';
+import NavigationDetailComponent from './NavigationDetailComponent';
 
 const HeaderComponent = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +28,8 @@ const HeaderComponent = () => {
 
   return (
     <div className={`fixed w-full transition-colors duration-500 z-50 hover:bg-green-800 ${isScrolled || !isRootPath ? 'bg-green-800' : 'bg-transparent'} z-10`}>
-      <NavigationComponent />
+      {/* <NavigationDetailComponent /> */}
+    <NavigationDetailComponent />
     </div>
   )
 }
